@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Moodify</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Moodify</h1>
+    <form id="songAttributesForm" action="{{ url_for('predict') }}" method="post">
+      <label for="danceability">danceability:</label>
+      <input type="number" id="danceability" name="danceability" step="0.01" min="0" max="1" required>
+      
+      <label for="energy">energy:</label>
+      <input type="number" id="energy" name="energy" step="0.01" min="0" max="1" required>
+
+      <label for="acousticness">acousticness:</label>
+      <input type="number" id="acousticness" name="acousticness" step="0.01" min="0" max="1" required>
+
+      <label for="liveness">liveness:</label>
+      <input type="number" id="liveness" name="liveness" step="0.01" min="0" max="1" required>
+
+      <label for="tempo">Tempo:</label>
+      <input type="number" id="tempo" name="tempo" step="0.1" min="0" required>
+
+      <label for="songType">Song Type (ML-predicted):</label>
+      <input type="text" id="songType" name="songType" readonly>
+      <button type="button" >Predict Song Type</button> 
+      <h4>
+        
+      </h4>
+
+    </form>
+  </div>
+
+  <!-- <script>
+    onclick="predict()"
+    function predict() {
+      // Get form input values
+      var danceability = parseFloat(document.getElementById('danceability').value);
+      var energy = parseFloat(document.getElementById('energy').value);
+      var acousticness = parseFloat(document.getElementById('acousticness').value);
+      var liveness = parseFloat(document.getElementById('liveness').value);
+      var tempo = parseFloat(document.getElementById('tempo').value);
+
+      // Create an object with form data to send to the server
+      //var formData = {
+        'danceability': danceability,
+        'energy':  energy,
+        'acousticness': acousticness,
+        'label': label,
+        'tempo': tempo
+      };
+
+      // Send a POST request to the Flask app endpoint for prediction
+      fetch("{{ url_for('/') }}", {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Update the prediction result on the HTML page
+        document.getElementById('songType').value = 'Song type is: ' + data['prediction_text'];
+      })
+      .catch(error => console.error('Error:', error));
+    }
+  </script> -->
+</body>
+</html>
