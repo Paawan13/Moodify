@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Music Attributes</title>
+   <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    /* Apply styles to the form elements */
+form {
+    width: 300px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+   
+  </style> 
+</head>
+<body>
+  <h1> Song Type Prediction Form</h1>
+  <form action="/" method="post">
+    <label for="danceability">danceability</label>
+    <input type="text" id="danceability" name="danceability" required><br>
+    <label for="energy">energy</label>
+    <input type="text" id="energy" name="energy" required><br>
+    
+    <label for="acousticness">acousticness</label>
+    <input type="text" id="acousticness" name="acousticness" required><br>
+
+    <label for="liveness">liveness</label>
+    <input type="text" id="liveness" name="liveness" required><br>
+    <label for="tempo">tempo</label>
+    <input type="text" id="tempo" name="tempo" required><br>
+    
+
+  
+
+    <input type="submit" value="Submit">
+</form>
+
+  
+</body>
+</html>
